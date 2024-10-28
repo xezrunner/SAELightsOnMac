@@ -234,7 +234,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.SymbolicBreakpoint">
          <BreakpointContent
             uuid = "49DE49A4-230F-4AA5-8DD3-755E0B12460E"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "Yes"
             symbolName = "__49-[SiriUISiriStatusView _updateEdgeLightViewState]_block_invoke"
@@ -248,15 +248,6 @@
                </BreakpointActionProxy>
             </Actions>
             <Locations>
-               <Location
-                  uuid = "49DE49A4-230F-4AA5-8DD3-755E0B12460E - 83b5be1d31042eea"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__49-[SiriUISiriStatusView _updateEdgeLightViewState]_block_invoke"
-                  moduleName = "SiriUI"
-                  usesParentBreakpointCondition = "Yes">
-               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -277,7 +268,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.SymbolicBreakpoint">
          <BreakpointContent
             uuid = "FC7053F4-940B-4E6A-887E-00E3685A8174"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "Yes"
             symbolName = "_updateOrbViewState"
@@ -291,15 +282,6 @@
                </BreakpointActionProxy>
             </Actions>
             <Locations>
-               <Location
-                  uuid = "FC7053F4-940B-4E6A-887E-00E3685A8174 - d7bda92e25d5947"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[SiriUISiriStatusView _updateOrbViewState]"
-                  moduleName = "SiriUI"
-                  usesParentBreakpointCondition = "Yes">
-               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>

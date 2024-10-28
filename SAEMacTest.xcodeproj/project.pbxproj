@@ -6,14 +6,46 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		2147E60C2CCF48990027945C /* GlobalState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2147E60B2CCF48990027945C /* GlobalState.swift */; };
+		215F31652CCEDA0C00F6ADD5 /* BackingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215F31642CCEDA0500F6ADD5 /* BackingView.swift */; };
+		215F31682CCEE82D00F6ADD5 /* ObjCUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215F31672CCEE82D00F6ADD5 /* ObjCUtilities.swift */; };
+		215F316A2CCEF4E500F6ADD5 /* HostingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215F31692CCEF4E500F6ADD5 /* HostingView.swift */; };
+		215F316C2CCEFB7D00F6ADD5 /* EdgeLightWindow@Runtime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215F316B2CCEFB7000F6ADD5 /* EdgeLightWindow@Runtime.swift */; };
+		215F31712CCEFD9700F6ADD5 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215F31702CCEFD9700F6ADD5 /* MainView.swift */; };
+		215F31752CCEFE4F00F6ADD5 /* ControllerWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215F31742CCEFE4D00F6ADD5 /* ControllerWindow.swift */; };
+		2161CB282CCED8E5002E108A /* ContentView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2161CB232CCED8E5002E108A /* ContentView2.swift */; };
+		2161CB292CCED8E5002E108A /* SAEMacTestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2161CB252CCED8E5002E108A /* SAEMacTestApp.swift */; };
+		2161CB2A2CCED8E5002E108A /* Swizzles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2161CB262CCED8E5002E108A /* Swizzles.swift */; };
+		2161CB2C2CCED8E5002E108A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2161CB212CCED8E5002E108A /* Assets.xcassets */; };
+		21B37D8A2CCF107A004636AF /* FullWidthButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B37D892CCF107A004636AF /* FullWidthButtonStyle.swift */; };
+		21B37D8E2CCF1E9B004636AF /* FullWidthToggleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B37D8D2CCF1E9B004636AF /* FullWidthToggleStyle.swift */; };
+		21D108292CCF4FD1001AACF1 /* XZColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D108282CCF4FD1001AACF1 /* XZColorPicker.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		211244692CCAFF61009C1186 /* SAEMacTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SAEMacTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2147E60B2CCF48990027945C /* GlobalState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalState.swift; sourceTree = "<group>"; };
+		215F31632CCED9AC00F6ADD5 /* SAEMacTest.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SAEMacTest.entitlements; sourceTree = "<group>"; };
+		215F31642CCEDA0500F6ADD5 /* BackingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackingView.swift; sourceTree = "<group>"; };
+		215F31672CCEE82D00F6ADD5 /* ObjCUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjCUtilities.swift; sourceTree = "<group>"; };
+		215F31692CCEF4E500F6ADD5 /* HostingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostingView.swift; sourceTree = "<group>"; };
+		215F316B2CCEFB7000F6ADD5 /* EdgeLightWindow@Runtime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EdgeLightWindow@Runtime.swift"; sourceTree = "<group>"; };
+		215F31702CCEFD9700F6ADD5 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		215F31742CCEFE4D00F6ADD5 /* ControllerWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerWindow.swift; sourceTree = "<group>"; };
+		2161CB212CCED8E5002E108A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2161CB232CCED8E5002E108A /* ContentView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView2.swift; sourceTree = "<group>"; };
+		2161CB252CCED8E5002E108A /* SAEMacTestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SAEMacTestApp.swift; sourceTree = "<group>"; };
+		2161CB262CCED8E5002E108A /* Swizzles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swizzles.swift; sourceTree = "<group>"; };
+		21B37D892CCF107A004636AF /* FullWidthButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullWidthButtonStyle.swift; sourceTree = "<group>"; };
+		21B37D8D2CCF1E9B004636AF /* FullWidthToggleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullWidthToggleStyle.swift; sourceTree = "<group>"; };
+		21D108282CCF4FD1001AACF1 /* XZColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XZColorPicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		2112446B2CCAFF61009C1186 /* SAEMacTest */ = {
+		2161CB2F2CCED90C002E108A /* Preview Content */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = SAEMacTest;
+			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -32,7 +64,7 @@
 		211244602CCAFF61009C1186 = {
 			isa = PBXGroup;
 			children = (
-				2112446B2CCAFF61009C1186 /* SAEMacTest */,
+				2161CB2D2CCED906002E108A /* SAEMacTest */,
 				2112446A2CCAFF61009C1186 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -43,6 +75,77 @@
 				211244692CCAFF61009C1186 /* SAEMacTest.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		2147E60D2CCF4B8A0027945C /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				21D108282CCF4FD1001AACF1 /* XZColorPicker.swift */,
+			);
+			path = Controls;
+			sourceTree = "<group>";
+		};
+		215F31662CCEE82C00F6ADD5 /* Backend */ = {
+			isa = PBXGroup;
+			children = (
+				2147E60B2CCF48990027945C /* GlobalState.swift */,
+				215F31692CCEF4E500F6ADD5 /* HostingView.swift */,
+				215F31672CCEE82D00F6ADD5 /* ObjCUtilities.swift */,
+				2161CB262CCED8E5002E108A /* Swizzles.swift */,
+			);
+			path = Backend;
+			sourceTree = "<group>";
+		};
+		215F31722CCEFE2F00F6ADD5 /* Miscellaneous */ = {
+			isa = PBXGroup;
+			children = (
+				2161CB232CCED8E5002E108A /* ContentView2.swift */,
+			);
+			path = Miscellaneous;
+			sourceTree = "<group>";
+		};
+		215F31732CCEFE4500F6ADD5 /* Windows */ = {
+			isa = PBXGroup;
+			children = (
+				215F31742CCEFE4D00F6ADD5 /* ControllerWindow.swift */,
+				215F316B2CCEFB7000F6ADD5 /* EdgeLightWindow@Runtime.swift */,
+			);
+			path = Windows;
+			sourceTree = "<group>";
+		};
+		2161CB2D2CCED906002E108A /* SAEMacTest */ = {
+			isa = PBXGroup;
+			children = (
+				2147E60D2CCF4B8A0027945C /* Controls */,
+				21B37D862CCF1066004636AF /* Styles */,
+				215F31732CCEFE4500F6ADD5 /* Windows */,
+				2161CB312CCED918002E108A /* Views */,
+				215F31662CCEE82C00F6ADD5 /* Backend */,
+				2161CB252CCED8E5002E108A /* SAEMacTestApp.swift */,
+				215F31722CCEFE2F00F6ADD5 /* Miscellaneous */,
+				215F31632CCED9AC00F6ADD5 /* SAEMacTest.entitlements */,
+				2161CB212CCED8E5002E108A /* Assets.xcassets */,
+				2161CB2F2CCED90C002E108A /* Preview Content */,
+			);
+			path = SAEMacTest;
+			sourceTree = "<group>";
+		};
+		2161CB312CCED918002E108A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				215F31642CCEDA0500F6ADD5 /* BackingView.swift */,
+				215F31702CCEFD9700F6ADD5 /* MainView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		21B37D862CCF1066004636AF /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				21B37D892CCF107A004636AF /* FullWidthButtonStyle.swift */,
+				21B37D8D2CCF1E9B004636AF /* FullWidthToggleStyle.swift */,
+			);
+			path = Styles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -61,7 +164,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				2112446B2CCAFF61009C1186 /* SAEMacTest */,
+				2161CB2F2CCED90C002E108A /* Preview Content */,
 			);
 			name = SAEMacTest;
 			packageProductDependencies = (
@@ -109,6 +212,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2161CB2C2CCED8E5002E108A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,6 +223,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				215F31712CCEFD9700F6ADD5 /* MainView.swift in Sources */,
+				215F31752CCEFE4F00F6ADD5 /* ControllerWindow.swift in Sources */,
+				2147E60C2CCF48990027945C /* GlobalState.swift in Sources */,
+				21B37D8E2CCF1E9B004636AF /* FullWidthToggleStyle.swift in Sources */,
+				215F316C2CCEFB7D00F6ADD5 /* EdgeLightWindow@Runtime.swift in Sources */,
+				21D108292CCF4FD1001AACF1 /* XZColorPicker.swift in Sources */,
+				21B37D8A2CCF107A004636AF /* FullWidthButtonStyle.swift in Sources */,
+				215F31682CCEE82D00F6ADD5 /* ObjCUtilities.swift in Sources */,
+				2161CB282CCED8E5002E108A /* ContentView2.swift in Sources */,
+				2161CB292CCED8E5002E108A /* SAEMacTestApp.swift in Sources */,
+				215F31652CCEDA0C00F6ADD5 /* BackingView.swift in Sources */,
+				215F316A2CCEF4E500F6ADD5 /* HostingView.swift in Sources */,
+				2161CB2A2CCED8E5002E108A /* Swizzles.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,11 +366,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = SAEMacTest/SAEMacTest.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SAEMacTest/Preview Content\"";
-				DEVELOPMENT_TEAM = W7TTKAZX72;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -265,6 +384,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.xezrunner.SAEMacTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = macosx;
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -278,11 +398,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = SAEMacTest/SAEMacTest.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SAEMacTest/Preview Content\"";
-				DEVELOPMENT_TEAM = W7TTKAZX72;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -294,6 +416,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.xezrunner.SAEMacTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = macosx;
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
