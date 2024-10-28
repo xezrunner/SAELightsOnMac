@@ -1,4 +1,5 @@
 import Foundation
+import QuartzCore
 
 class Swizzles {
     // Dummy function that just returns a true Bool.
@@ -12,6 +13,10 @@ class Swizzles {
     
     @objc dynamic static func rect() -> CGRect {
         return CGRect(x: 0, y: 0, width: 0.5, height: 0.5)
+    }
+    
+    @objc dynamic static func speed() -> Float {
+        return 0.03
     }
     
     // https://stackoverflow.com/a/13221685

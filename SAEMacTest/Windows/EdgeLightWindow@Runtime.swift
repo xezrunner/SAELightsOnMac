@@ -1,9 +1,12 @@
 import SwiftUI
+import AVFAudio
 
 // TODO: static not ideal!
 struct EdgeLightWindow {
     static var window: NSWindow? = nil
     static var layer:  CALayer?  = nil
+    
+    static var audioPlayer = try! AVAudioPlayer(data: NSDataAsset(name: "jbl_begin_sae")!.data)
     
     static func createEdgeLightWindow(isWindowed: Bool = false) -> NSWindow? {
         // MARK: Initialize window class/instance
@@ -28,12 +31,6 @@ struct EdgeLightWindow {
         // MARK: Set up layer
         let layer = windowInstance.value(forKey: "_edgeLightLayer") as! CALayer
         self.layer = layer
-        
-        //let mainScreen = NSScreen.main!
-        //layer.setValue(mainScreen, forKey: "_screen")
-        //callToObjC(layer, "setScreen:", mainScreen)
-        //let screen = layer.perform(NSSelectorFromString("_getScreen"))
-        //print("  - _getScreen result: \(screen.debugDescription)")
         
         setMultiplyCompositing(value: true)
         
@@ -67,9 +64,11 @@ struct EdgeLightWindow {
             windowInstance.contentView!.addSubview(edgeLightView)
         }
         
+        
+        
         return windowInstance
     }
-
+    
     static func setWindowed(value: Bool) -> Bool {
         guard let window = window else {
             print("\(#function): no window!")
@@ -85,11 +84,16 @@ struct EdgeLightWindow {
             window.styleMask = [.titled, .resizable, .closable, .miniaturizable, .fullSizeContentView]
             window.level = .normal
             window.hasShadow = true
+            
+            // Hide window controls:
             window.titlebarAppearsTransparent = true
+            window.standardWindowButton(.closeButton)?.isHidden = true
+            window.standardWindowButton(.miniaturizeButton)?.isHidden = true
+            window.standardWindowButton(.zoomButton)?.isHidden = true
             
             // Set window visuals:
-            window.setFrame(NSRect(x: (1920-1280)/2, y: (1080-720)/2, width: 1280, height: 720), display: true)
-            window.backgroundColor = NSColor.black
+            window.setFrame(NSRect(x: (window.screen!.frame.width-1280)/2, y: (window.screen!.frame.height-720)/2, width: 1280, height: 720), display: true)
+            window.backgroundColor = NSColor.windowBackgroundColor
             
             print("Set edge light window to windowed!")
         } else {
@@ -108,10 +112,23 @@ struct EdgeLightWindow {
         return value
     }
     
+    static func mode() -> Int {
+        guard let window = window else {
+            return -1
+        }
+        return window.value(forKey: "_mode") as! Int
+    }
+    
     static func setMode(value: Int) {
         guard let window = window else {
             print("\(#function) no window!")
             return
+        }
+        
+        if value == 1 {
+            if mode() != 1 {
+                audioPlayer.play()
+            }
         }
         
         callToObjC(window, "setMode:", value)

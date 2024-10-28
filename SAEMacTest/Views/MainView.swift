@@ -5,7 +5,7 @@ struct MainView: View {
     @EnvironmentObject var globalState: GlobalState
     
     @State var modeValue   = 1.0
-    @State var volumeLevel: Float = 0.0
+    @State var volumeLevel: Float = -80.0
     @State var burstStartPosition: Float = 1
     
     @State var multiplyCompositionState: Bool? = nil
@@ -17,6 +17,16 @@ struct MainView: View {
         Color.yellow,
         Color.pink
      ]
+
+    func keyDownEvent(event: NSEvent) -> NSEvent? {
+        if event.keyCode == 1 {
+            EdgeLightWindow.setBurstStartPosition(value: Int(burstStartPosition))
+            EdgeLightWindow.setMode(value: Int(modeValue))
+            return nil
+        }
+        
+        return event
+    }
     
     var body: some View {
         ZStack {
@@ -99,6 +109,9 @@ struct MainView: View {
                 .buttonStyle(FullWidthButtonStyle())
                 .toggleStyle(FullWidthToggleStyle())
             }
+        }
+        .onAppear {
+            let _ = NSEvent.addLocalMonitorForEvents(matching: .keyDown, handler: keyDownEvent)
         }
         .ignoresSafeArea(.all)
     }

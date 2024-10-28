@@ -7,10 +7,13 @@
 
 import SwiftUI
 import CoreImage.CIFilterBuiltins
+import AVKit
 
 @main
 struct SAEMacTestApp: App {
     var isWindowed = true
+    
+    var controllerWindow: NSWindow?
     
     public static var globalState = GlobalState()
     
@@ -18,8 +21,21 @@ struct SAEMacTestApp: App {
         loadDependencies()
         doSwizzles()
         
-        _ = ControllerWindow.createControllerWindow()
         _ = EdgeLightWindow.createEdgeLightWindow(isWindowed: false)
+        if !NSEvent.modifierFlags.contains(.shift) { controllerWindow = ControllerWindow.createControllerWindow() }
+        else { let _ = NSEvent.addLocalMonitorForEvents(matching: .keyDown, handler: keyDownEvent) }
+    }
+    
+    func keyDownEvent(event: NSEvent) -> NSEvent {
+        if event.keyCode == 1 {
+            if controllerWindow == nil {
+                EdgeLightWindow.setBurstStartPosition(value: Int(1))
+                EdgeLightWindow.setVolumeLevel(value: Float(-25.0))
+                EdgeLightWindow.setMode(value: Int(1))
+            }
+        }
+        
+        return event
     }
     
     func loadDependencies() {
