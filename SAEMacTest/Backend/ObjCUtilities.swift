@@ -19,6 +19,8 @@ typealias T_callToObjCWithNSScreen  = @convention(c) (AnyObject, Selector, NSScr
 
 // TODO: naming!
 
+// MARK: Static
+
 // TODO: this might be unnecessary, as the dynamic perform() version would do the same thing.
 func callToObjC(_ inst: AnyObject, _ selectorName: String) {
     let selector = NSSelectorFromString(selectorName)
@@ -39,17 +41,13 @@ func callToObjC<T>(_ inst: AnyObject, _ selectorName: String, _ arg: T? = nil) {
     let imp = method_getImplementation(method)
     
     switch arg {
-    case let value as Int:      unsafeBitCast(imp, to: T_callToObjCWithInteger.self)(inst, selector, value)
-    case let value as Bool:      unsafeBitCast(imp, to: T_callToObjCWithInteger.self)(inst, selector, value ? 1 : 0)
-    case let value as Float:    unsafeBitCast(imp, to: T_callToObjCWithFloat.self)  (inst, selector, value)
-    case let value as Double:   do {
-        _ = value
-        fatalError("Doubles don't appear to be used very often in Obj-C. Skip if you know what you're doing.")
-        //unsafeBitCast(imp, to: T_callToObjCWithDouble.self)  (inst, selector, value)
-    }
+    case let value as Int:      unsafeBitCast(imp, to: T_callToObjCWithInteger.self)  (inst, selector, value)
+    case let value as Bool:     unsafeBitCast(imp, to: T_callToObjCWithInteger.self)  (inst, selector, value ? 1 : 0)
+    case let value as Float:    unsafeBitCast(imp, to: T_callToObjCWithFloat.self)    (inst, selector, value)
+    case let value as Double:   unsafeBitCast(imp, to: T_callToObjCWithDouble.self)   (inst, selector, value)
     case let value as NSRect:   unsafeBitCast(imp, to: T_callToObjCWithNSRect.self)   (inst, selector, value)
     case let value as NSScreen: unsafeBitCast(imp, to: T_callToObjCWithNSScreen.self) (inst, selector, value)
-    default:                 fatalError("Invalid type given as arg to \(#function)!")
+    default:                    fatalError("Invalid type given as arg to \(#function)!")
     }
 }
 
@@ -63,18 +61,12 @@ func callToObjC<T>(_ inst: AnyObject, _ selectorName: String, _ arg0: T? = nil, 
     
     switch arg0 {
     case let value as Int:      unsafeBitCast(imp, to: T_callToObjCWithInteger2.self)(inst, selector, value, value)
-    case let value as Bool:      unsafeBitCast(imp, to: T_callToObjCWithInteger2.self)(inst, selector, value ? 1 : 0, arg1 as! Bool ? 1 : 0)
-//    case let value as Float:    unsafeBitCast(imp, to: T_callToObjCWithFloat.self)  (inst, selector, value)
-//    case let value as Double:   do {
-//        _ = value
-//        fatalError("Doubles don't appear to be used very often in Obj-C. Skip if you know what you're doing.")
-//        //unsafeBitCast(imp, to: T_callToObjCWithDouble.self)  (inst, selector, value)
-//    }
-//    case let value as NSRect:   unsafeBitCast(imp, to: T_callToObjCWithNSRect.self)   (inst, selector, value)
-//    case let value as NSScreen: unsafeBitCast(imp, to: T_callToObjCWithNSScreen.self) (inst, selector, value)
-    default:                 fatalError("Invalid type given as arg to \(#function)!")
+    case let value as Bool:     unsafeBitCast(imp, to: T_callToObjCWithInteger2.self)(inst, selector, value ? 1 : 0, arg1 as! Bool ? 1 : 0)
+    default:                    fatalError("Invalid type given as arg to \(#function)!")
     }
 }
+
+// MARK: Dynamic
 
 func callToObjC_dynamic(_ inst: AnyObject, _ selectorName: String, _ args: Any...) -> Unmanaged<AnyObject>? {
     let selector = NSSelectorFromString(selectorName)

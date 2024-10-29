@@ -93,7 +93,7 @@ struct EdgeLightWindow {
             
             // Set window visuals:
             window.setFrame(NSRect(x: (window.screen!.frame.width-1280)/2, y: (window.screen!.frame.height-720)/2, width: 1280, height: 720), display: true)
-            window.backgroundColor = NSColor.windowBackgroundColor
+            window.backgroundColor = .black //NSColor.windowBackgroundColor
             
             print("Set edge light window to windowed!")
         } else {

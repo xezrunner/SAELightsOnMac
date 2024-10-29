@@ -20,6 +20,7 @@
 		2161CB2C2CCED8E5002E108A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2161CB212CCED8E5002E108A /* Assets.xcassets */; };
 		21B37D8A2CCF107A004636AF /* FullWidthButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B37D892CCF107A004636AF /* FullWidthButtonStyle.swift */; };
 		21B37D8E2CCF1E9B004636AF /* FullWidthToggleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B37D8D2CCF1E9B004636AF /* FullWidthToggleStyle.swift */; };
+		21B9BA892CD12BD50053DE2A /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B9BA882CD12BD30053DE2A /* TestView.swift */; };
 		21D108292CCF4FD1001AACF1 /* XZColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D108282CCF4FD1001AACF1 /* XZColorPicker.swift */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +40,7 @@
 		2161CB262CCED8E5002E108A /* Swizzles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swizzles.swift; sourceTree = "<group>"; };
 		21B37D892CCF107A004636AF /* FullWidthButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullWidthButtonStyle.swift; sourceTree = "<group>"; };
 		21B37D8D2CCF1E9B004636AF /* FullWidthToggleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullWidthToggleStyle.swift; sourceTree = "<group>"; };
+		21B9BA882CD12BD30053DE2A /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		21D108282CCF4FD1001AACF1 /* XZColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XZColorPicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -133,6 +135,7 @@
 		2161CB312CCED918002E108A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				21B9BA882CD12BD30053DE2A /* TestView.swift */,
 				215F31642CCEDA0500F6ADD5 /* BackingView.swift */,
 				215F31702CCEFD9700F6ADD5 /* ControllerView.swift */,
 			);
@@ -223,6 +226,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21B9BA892CD12BD50053DE2A /* TestView.swift in Sources */,
 				215F31712CCEFD9700F6ADD5 /* ControllerView.swift in Sources */,
 				215F31752CCEFE4F00F6ADD5 /* ControllerWindow.swift in Sources */,
 				2147E60C2CCF48990027945C /* GlobalState.swift in Sources */,

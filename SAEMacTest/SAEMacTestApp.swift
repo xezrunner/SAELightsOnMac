@@ -21,9 +21,11 @@ struct SAEMacTestApp: App {
         loadDependencies()
         doSwizzles()
         
+#if true
         _ = EdgeLightWindow.createEdgeLightWindow(isWindowed: false)
         if !NSEvent.modifierFlags.contains(.shift) { controllerWindow = ControllerWindow.createControllerWindow() }
         else { let _ = NSEvent.addLocalMonitorForEvents(matching: .keyDown, handler: keyDownEvent) }
+#endif
     }
     
     func keyDownEvent(event: NSEvent) -> NSEvent {
@@ -59,6 +61,9 @@ struct SAEMacTestApp: App {
             //ContentView()
             //ContentView2()
             //BackingView()
+            //TestView()
+            ControllerView()
+                .environmentObject(SAEMacTestApp.globalState)
         }
     }
 }

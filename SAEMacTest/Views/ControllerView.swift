@@ -11,13 +11,6 @@ struct ControllerView: View {
     @State var multiplyCompositionState: Bool? = nil
     @State var windowedModeState: Bool? = nil
     
-    @State var colors: [Color] = [
-        Color.purple,
-        Color.blue,
-        Color.yellow,
-        Color.pink
-     ]
-
     func keyDownEvent(event: NSEvent) -> NSEvent? {
         if event.keyCode == 1 {
             EdgeLightWindow.setBurstStartPosition(value: Int(burstStartPosition))
@@ -34,84 +27,109 @@ struct ControllerView: View {
                 .background(.regularMaterial)
             
             VStack {
-                Spacer().frame(height: 50)
-                
-                VStack {
-                    let columns = [GridItem(.fixed(60)), GridItem(.fixed(60))]
-                    
-                    LazyVGrid(columns: columns) {
-                        ForEach(0..<colors.count, id: \.self) { index in
-                            XZColorPicker(color: $globalState.meshColors[index])
-                        }
-                    }
-                }
+                Spacer()
+                    .frame(height: 15)
                 
                 VStack(alignment: .leading, spacing: 14) {
+                    // MARK: Mesh settings
+                    VStack {
+                        let columns = [GridItem(.fixed(60)), GridItem(.fixed(60))]
+                        LazyVGrid(columns: columns) {
+                            ForEach(0..<globalState.meshColors.count, id: \.self) { index in
+                                XZColorPicker(color: $globalState.meshColors[index])
+                            }
+                        }
+                        .padding()
+                        
+                        VStack(alignment: .leading) {
+                            Text("Mesh gradient brightness: \(globalState.meshBrightness)")
+                            Slider(value: $globalState.meshBrightness, in: -3...10)
+                                .onChange(of: globalState.meshBrightness) {
+                                    //NSHapticFeedbackManager.defaultPerformer.perform(.generic, performanceTime: .now)
+                                }
+                            
+                            Text("Mesh gradient contrast: \(globalState.meshContrast)")
+                            Slider(value: $globalState.meshContrast, in: -3...10)
+                                .onChange(of: globalState.meshContrast) {
+                                    //NSHapticFeedbackManager.defaultPerformer.perform(.generic, performanceTime: .now)
+                                }
+                        }
+                        .padding(.horizontal)
+                    }
+                    
+                    // MARK: Edge light window properties
+                    VStack {
                         VStack(alignment: .leading) {
                             Text("Volume level: \(Int(volumeLevel))")
-                            Slider(value: $volumeLevel, in: -130...130, step: 5)
+                            Slider(value: $volumeLevel, in: -130...130)
                                 .onChange(of: volumeLevel) {
                                     NSHapticFeedbackManager.defaultPerformer.perform(.generic, performanceTime: .now)
                                     EdgeLightWindow.setVolumeLevel(value: volumeLevel)
                                 }
                         }
                         .padding(.horizontal)
-                    
-                    VStack(alignment: .leading) {
-                        Text("Burst start position index: \(Int(burstStartPosition))")
-                        Slider(value: $burstStartPosition, in: 0...7, step: 1)
-                            .onChange(of: burstStartPosition) {
-                                NSHapticFeedbackManager.defaultPerformer.perform(.generic, performanceTime: .now)
-                            }
-                    }
-                    .padding(.horizontal)
-                    
-                    VStack(alignment: .leading) {
-                        Text("Mode: \(Int(modeValue))")
-                        Slider(value: $modeValue, in: 0...5, step: 1)
-                            .onChange(of: modeValue) {
-                                NSHapticFeedbackManager.defaultPerformer.perform(.generic, performanceTime: .now)
-                            }
-                    }
-                    .padding()
-                    
-                    Button("Set mode") {
-                        EdgeLightWindow.setBurstStartPosition(value: Int(burstStartPosition))
-                        EdgeLightWindow.setMode(value: Int(modeValue))
-                    }
-                    .buttonStyle(
-                        FullWidthButtonStyle(backgroundColor: .accentColor,
-                                             foregroundColor: .white))
-                    
-                    Toggle("Enable intelligence light view (macOS SAE)", isOn: $globalState.useIntelligenceLightView)
-                    
-                    Toggle("\(multiplyCompositionState ?? false ? "" : "")Enable multiply blending composition", isOn:
-                            Binding(
-                                get: { EdgeLightWindow.layer?.compositingFilter != nil },
-                                set: { value in
-                                    EdgeLightWindow.layer?.compositingFilter = (value ? CIFilter.multiplyCompositing() : nil)
-                                    multiplyCompositionState = EdgeLightWindow.layer?.compositingFilter != nil
+                        
+                        VStack(alignment: .leading) {
+                            Text("Burst start position index: \(Int(burstStartPosition))")
+                            Slider(value: $burstStartPosition, in: 0...7, step: 1)
+                                .onChange(of: burstStartPosition) {
+                                    NSHapticFeedbackManager.defaultPerformer.perform(.generic, performanceTime: .now)
                                 }
-                            )
-                    )
-                    
-                    Toggle("\(windowedModeState ?? false ? "" : "")Enable windowed mode", isOn:
-                            Binding(
-                                get: { windowedModeState == nil ? EdgeLightWindow.window!.hasShadow : windowedModeState! },
-                                set: { value in
-                                    windowedModeState = EdgeLightWindow.setWindowed(value: value)
+                        }
+                        .padding(.horizontal)
+                        
+                        VStack(alignment: .leading) {
+                            Text("Mode: \(Int(modeValue))")
+                            Slider(value: $modeValue, in: 0...5, step: 1)
+                                .onChange(of: modeValue) {
+                                    NSHapticFeedbackManager.defaultPerformer.perform(.generic, performanceTime: .now)
                                 }
-                            )
-                    )
+                        }
+                        .padding()
+                        
+                        Button("Set mode") {
+                            EdgeLightWindow.setBurstStartPosition(value: Int(burstStartPosition))
+                            EdgeLightWindow.setMode(value: Int(modeValue))
+                        }
+                        .buttonStyle(
+                            FullWidthButtonStyle(backgroundColor: .accentColor,
+                                                 foregroundColor: .white))
+                    }
+                    
+                    // MARK: Edge light window settings
+                    VStack(alignment: .leading) {
+                        Toggle("Enable intelligence light view (macOS SAE)", isOn: $globalState.useIntelligenceLightView)
+                        
+                        Toggle("\(multiplyCompositionState ?? false ? "" : "")Enable multiply blending composition", isOn:
+                                Binding(
+                                    get: { EdgeLightWindow.layer?.compositingFilter != nil },
+                                    set: { value in
+                                        EdgeLightWindow.layer?.compositingFilter = (value ? CIFilter.multiplyCompositing() : nil)
+                                        multiplyCompositionState = EdgeLightWindow.layer?.compositingFilter != nil
+                                    }
+                                )
+                        )
+                        
+                        Toggle("\(windowedModeState ?? false ? "" : "")Enable windowed mode", isOn:
+                                Binding(
+                                    get: { windowedModeState == nil ? EdgeLightWindow.window?.hasShadow ?? false : windowedModeState! },
+                                    set: { value in
+                                        windowedModeState = EdgeLightWindow.setWindowed(value: value)
+                                    }
+                                )
+                        )
+                    }
                     
                 }
-                .padding(30)
+                .padding(24)
                 .buttonStyle(FullWidthButtonStyle())
                 .toggleStyle(FullWidthToggleStyle())
             }
         }
         .onAppear {
             let _ = NSEvent.addLocalMonitorForEvents(matching: .keyDown, handler: keyDownEvent)
+            let window = NSApplication.shared.windows.first!
+            print(window)
         }
         .ignoresSafeArea(.all)
     }
@@ -120,5 +138,6 @@ struct ControllerView: View {
 #Preview {
     ControllerView()
         .environmentObject(GlobalState())
-        .frame(width: 400, height: 480)
+        .frame(width: 400)
+        //.frame(width: 400, height: 520)
 }
