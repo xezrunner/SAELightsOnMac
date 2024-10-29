@@ -1,7 +1,7 @@
 import SwiftUI
 import AVFoundation
 
-struct MainView: View {
+struct ControllerView: View {
     @EnvironmentObject var globalState: GlobalState
     
     @State var modeValue   = 1.0
@@ -118,7 +118,7 @@ struct MainView: View {
 }
 
 #Preview {
-    MainView()
+    ControllerView()
         .environmentObject(GlobalState())
         .frame(width: 400, height: 480)
 }

@@ -16,7 +16,7 @@ struct ControllerWindow {
         window.collectionBehavior = NSWindow.CollectionBehavior.managed // Restore spaces / mission ctrl
         window.titlebarAppearsTransparent = true
         
-        let mainView = MainView().environmentObject(SAEMacTestApp.globalState)
+        let mainView = ControllerView().environmentObject(SAEMacTestApp.globalState)
         let mainViewHost = HostingView(rootView: mainView, frame: window.contentRect(forFrameRect: window.frame))
         window.contentView = mainViewHost
 
