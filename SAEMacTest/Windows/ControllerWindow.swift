@@ -3,16 +3,17 @@ import SwiftUI
 struct ControllerWindow {
     public static var controllerWindow: NSWindow? = nil
     
-    static func createControllerWindow() -> NSWindow {
+    @MainActor static func createControllerWindow() -> NSWindow {
 #if true
-        let content = ControllerView().environmentObject(SAEMacTestApp.globalState)
+        let content = ControllerView().environmentObject(GLOBAL_globalState)
+        
         let controller = NSHostingController(rootView: content)
-        controller.view.autoresizesSubviews = false
-        controller.view.widthAnchor.constraint (greaterThanOrEqualToConstant: CGFloat(400)).isActive = true
-        controller.view.heightAnchor.constraint(greaterThanOrEqualToConstant: CGFloat(600)).isActive = true
+        //controller.view.widthAnchor.constraint (greaterThanOrEqualToConstant: CGFloat(400)).isActive = true
+        //controller.view.heightAnchor.constraint(greaterThanOrEqualToConstant: CGFloat(680)).isActive = true
         
         let window = NSWindow(contentViewController: controller)
         
+        window.setFrame(NSRect(origin: .zero, size: CGSize(width: 450, height: 680)), display: true)
         window.title = "Edge light window controller"
         window.styleMask = [.titled, .resizable, .closable, .miniaturizable, .fullSizeContentView]
         window.level = .normal

@@ -8,7 +8,7 @@ struct EdgeLightWindow {
     
     static var audioPlayer = try! AVAudioPlayer(data: NSDataAsset(name: "jbl_begin_sae")!.data)
     
-    static func createEdgeLightWindow(isWindowed: Bool = false) -> NSWindow? {
+    @MainActor static func createEdgeLightWindow(isWindowed: Bool = false) -> NSWindow? {
         // MARK: Initialize window class/instance
         guard let windowClass: AnyClass = NSClassFromString("SiriUIEdgeLightWindow") else { return nil }
         print("SiriUIEdgeLightWindow class: \(windowClass.debugDescription())")
@@ -57,7 +57,7 @@ struct EdgeLightWindow {
             windowInstance.contentView = NSView()
             
             // Create our custom view:
-            let backingView = BackingView().environmentObject(SAEMacTestApp.globalState)
+            let backingView = BackingView().environmentObject(GLOBAL_globalState)
             let backingViewHost = HostingView(rootView: backingView, frame: edgeLightView.frame)
             windowInstance.contentView!.addSubview(backingViewHost)
             

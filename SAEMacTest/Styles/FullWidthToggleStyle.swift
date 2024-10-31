@@ -15,7 +15,8 @@ struct FullWidthToggleStyle: ToggleStyle {
     func makeBody(configuration: Configuration) -> some View {
         HStack {
             ZStack {
-                Rectangle().fill(Color(NSColor.textColor))
+                Rectangle()
+                    .fill(configuration.isOn ? Color.accentColor : Color(NSColor.tertiarySystemFill))
                     .frame(width: size, height: size)
                     .clipShape(.rect(cornerRadius: 8, style: .circular))
                     .opacity(tapped ? 0.75 : 1)
@@ -29,6 +30,7 @@ struct FullWidthToggleStyle: ToggleStyle {
             configuration.label
                 .fontWeight(.medium)
         }
+        .frame(maxWidth: .infinity, alignment: .leading)
         .onLongPressGesture(perform: { }, onPressingChanged: { change in tapped = change })
         .onTapGesture {
             configuration.isOn.toggle()

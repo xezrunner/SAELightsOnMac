@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2147E60C2CCF48990027945C /* GlobalState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2147E60B2CCF48990027945C /* GlobalState.swift */; };
+		21526CE42CD17C1E0089F680 /* XZSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21526CE32CD17C1E0089F680 /* XZSlider.swift */; };
+		21526CE62CD1C29D0089F680 /* Binding+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21526CE52CD1C2940089F680 /* Binding+Extensions.swift */; };
 		215F31652CCEDA0C00F6ADD5 /* BackingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215F31642CCEDA0500F6ADD5 /* BackingView.swift */; };
 		215F31682CCEE82D00F6ADD5 /* ObjCUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215F31672CCEE82D00F6ADD5 /* ObjCUtilities.swift */; };
 		215F316A2CCEF4E500F6ADD5 /* HostingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215F31692CCEF4E500F6ADD5 /* HostingView.swift */; };
@@ -18,15 +20,22 @@
 		2161CB292CCED8E5002E108A /* SAEMacTestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2161CB252CCED8E5002E108A /* SAEMacTestApp.swift */; };
 		2161CB2A2CCED8E5002E108A /* Swizzles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2161CB262CCED8E5002E108A /* Swizzles.swift */; };
 		2161CB2C2CCED8E5002E108A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2161CB212CCED8E5002E108A /* Assets.xcassets */; };
+		21937A0F2CD1CEEE00486DF4 /* ControllerMeshGradientSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21937A0E2CD1CEEE00486DF4 /* ControllerMeshGradientSettingsView.swift */; };
 		21B37D8A2CCF107A004636AF /* FullWidthButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B37D892CCF107A004636AF /* FullWidthButtonStyle.swift */; };
 		21B37D8E2CCF1E9B004636AF /* FullWidthToggleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B37D8D2CCF1E9B004636AF /* FullWidthToggleStyle.swift */; };
 		21B9BA892CD12BD50053DE2A /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B9BA882CD12BD30053DE2A /* TestView.swift */; };
 		21D108292CCF4FD1001AACF1 /* XZColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D108282CCF4FD1001AACF1 /* XZColorPicker.swift */; };
+		21FD4A752CD270C4009351FF /* IntelligenceUIPlatterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FD4A742CD270C4009351FF /* IntelligenceUIPlatterView.swift */; };
+		21FD4A772CD28C63009351FF /* ControllerEdgeLightSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FD4A762CD28C56009351FF /* ControllerEdgeLightSettingsView.swift */; };
+		21FD4A7A2CD28D38009351FF /* ControllerEdgeLightWindowSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FD4A792CD28D32009351FF /* ControllerEdgeLightWindowSettingsView.swift */; };
+		21FD4A7C2CD2E9D1009351FF /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FD4A7B2CD2E9D0009351FF /* Test.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		211244692CCAFF61009C1186 /* SAEMacTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SAEMacTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2147E60B2CCF48990027945C /* GlobalState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalState.swift; sourceTree = "<group>"; };
+		21526CE32CD17C1E0089F680 /* XZSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XZSlider.swift; sourceTree = "<group>"; };
+		21526CE52CD1C2940089F680 /* Binding+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Binding+Extensions.swift"; sourceTree = "<group>"; };
 		215F31632CCED9AC00F6ADD5 /* SAEMacTest.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SAEMacTest.entitlements; sourceTree = "<group>"; };
 		215F31642CCEDA0500F6ADD5 /* BackingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackingView.swift; sourceTree = "<group>"; };
 		215F31672CCEE82D00F6ADD5 /* ObjCUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjCUtilities.swift; sourceTree = "<group>"; };
@@ -38,10 +47,15 @@
 		2161CB232CCED8E5002E108A /* ContentView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView2.swift; sourceTree = "<group>"; };
 		2161CB252CCED8E5002E108A /* SAEMacTestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SAEMacTestApp.swift; sourceTree = "<group>"; };
 		2161CB262CCED8E5002E108A /* Swizzles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swizzles.swift; sourceTree = "<group>"; };
+		21937A0E2CD1CEEE00486DF4 /* ControllerMeshGradientSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerMeshGradientSettingsView.swift; sourceTree = "<group>"; };
 		21B37D892CCF107A004636AF /* FullWidthButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullWidthButtonStyle.swift; sourceTree = "<group>"; };
 		21B37D8D2CCF1E9B004636AF /* FullWidthToggleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullWidthToggleStyle.swift; sourceTree = "<group>"; };
 		21B9BA882CD12BD30053DE2A /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		21D108282CCF4FD1001AACF1 /* XZColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XZColorPicker.swift; sourceTree = "<group>"; };
+		21FD4A742CD270C4009351FF /* IntelligenceUIPlatterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntelligenceUIPlatterView.swift; sourceTree = "<group>"; };
+		21FD4A762CD28C56009351FF /* ControllerEdgeLightSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerEdgeLightSettingsView.swift; sourceTree = "<group>"; };
+		21FD4A792CD28D32009351FF /* ControllerEdgeLightWindowSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerEdgeLightWindowSettingsView.swift; sourceTree = "<group>"; };
+		21FD4A7B2CD2E9D0009351FF /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -82,6 +96,8 @@
 		2147E60D2CCF4B8A0027945C /* Controls */ = {
 			isa = PBXGroup;
 			children = (
+				21FD4A742CD270C4009351FF /* IntelligenceUIPlatterView.swift */,
+				21526CE32CD17C1E0089F680 /* XZSlider.swift */,
 				21D108282CCF4FD1001AACF1 /* XZColorPicker.swift */,
 			);
 			path = Controls;
@@ -90,6 +106,7 @@
 		215F31662CCEE82C00F6ADD5 /* Backend */ = {
 			isa = PBXGroup;
 			children = (
+				21526CE52CD1C2940089F680 /* Binding+Extensions.swift */,
 				2147E60B2CCF48990027945C /* GlobalState.swift */,
 				215F31692CCEF4E500F6ADD5 /* HostingView.swift */,
 				215F31672CCEE82D00F6ADD5 /* ObjCUtilities.swift */,
@@ -101,6 +118,7 @@
 		215F31722CCEFE2F00F6ADD5 /* Miscellaneous */ = {
 			isa = PBXGroup;
 			children = (
+				21FD4A7B2CD2E9D0009351FF /* Test.swift */,
 				2161CB232CCED8E5002E108A /* ContentView2.swift */,
 			);
 			path = Miscellaneous;
@@ -135,6 +153,7 @@
 		2161CB312CCED918002E108A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				21FD4A722CD1D441009351FF /* Subviews */,
 				21B9BA882CD12BD30053DE2A /* TestView.swift */,
 				215F31642CCEDA0500F6ADD5 /* BackingView.swift */,
 				215F31702CCEFD9700F6ADD5 /* ControllerView.swift */,
@@ -149,6 +168,24 @@
 				21B37D8D2CCF1E9B004636AF /* FullWidthToggleStyle.swift */,
 			);
 			path = Styles;
+			sourceTree = "<group>";
+		};
+		21FD4A722CD1D441009351FF /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				21FD4A732CD1D446009351FF /* ControllerView */,
+			);
+			path = Subviews;
+			sourceTree = "<group>";
+		};
+		21FD4A732CD1D446009351FF /* ControllerView */ = {
+			isa = PBXGroup;
+			children = (
+				21937A0E2CD1CEEE00486DF4 /* ControllerMeshGradientSettingsView.swift */,
+				21FD4A762CD28C56009351FF /* ControllerEdgeLightSettingsView.swift */,
+				21FD4A792CD28D32009351FF /* ControllerEdgeLightWindowSettingsView.swift */,
+			);
+			path = ControllerView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,12 +271,19 @@
 				215F316C2CCEFB7D00F6ADD5 /* EdgeLightWindow@Runtime.swift in Sources */,
 				21D108292CCF4FD1001AACF1 /* XZColorPicker.swift in Sources */,
 				21B37D8A2CCF107A004636AF /* FullWidthButtonStyle.swift in Sources */,
+				21FD4A752CD270C4009351FF /* IntelligenceUIPlatterView.swift in Sources */,
 				215F31682CCEE82D00F6ADD5 /* ObjCUtilities.swift in Sources */,
+				21526CE62CD1C29D0089F680 /* Binding+Extensions.swift in Sources */,
 				2161CB282CCED8E5002E108A /* ContentView2.swift in Sources */,
+				21937A0F2CD1CEEE00486DF4 /* ControllerMeshGradientSettingsView.swift in Sources */,
 				2161CB292CCED8E5002E108A /* SAEMacTestApp.swift in Sources */,
 				215F31652CCEDA0C00F6ADD5 /* BackingView.swift in Sources */,
+				21526CE42CD17C1E0089F680 /* XZSlider.swift in Sources */,
 				215F316A2CCEF4E500F6ADD5 /* HostingView.swift in Sources */,
+				21FD4A7C2CD2E9D1009351FF /* Test.swift in Sources */,
+				21FD4A772CD28C63009351FF /* ControllerEdgeLightSettingsView.swift in Sources */,
 				2161CB2A2CCED8E5002E108A /* Swizzles.swift in Sources */,
+				21FD4A7A2CD28D38009351FF /* ControllerEdgeLightWindowSettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -32,7 +32,7 @@ func callToObjC(_ inst: AnyObject, _ selectorName: String) {
     unsafeBitCast(imp, to: T_callToObjC.self)(inst, selector)
 }
 
-func callToObjC<T>(_ inst: AnyObject, _ selectorName: String, _ arg: T? = nil) {
+func callToObjC<T>(_ inst: AnyObject, _ selectorName: String, _ arg: T) {
     let selector = NSSelectorFromString(selectorName)
     
     guard let method = class_getInstanceMethod(type(of: inst), selector) else {
@@ -51,7 +51,7 @@ func callToObjC<T>(_ inst: AnyObject, _ selectorName: String, _ arg: T? = nil) {
     }
 }
 
-func callToObjC<T>(_ inst: AnyObject, _ selectorName: String, _ arg0: T? = nil, _ arg1: T? = nil) {
+func callToObjC<T>(_ inst: AnyObject, _ selectorName: String, _ arg0: T, _ arg1: T) {
     let selector = NSSelectorFromString(selectorName)
     
     guard let method = class_getInstanceMethod(type(of: inst), selector) else {

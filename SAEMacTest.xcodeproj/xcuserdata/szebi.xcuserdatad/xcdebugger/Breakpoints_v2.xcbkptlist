@@ -54,15 +54,6 @@
                </BreakpointActionProxy>
             </Actions>
             <Locations>
-               <Location
-                  uuid = "5112BF38-0B69-47D0-9B35-DE004CD768A4 - 13ed6e87b9c4491a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[SiriUIEdgeLightWindow setMode:]"
-                  moduleName = "SiriUI"
-                  usesParentBreakpointCondition = "Yes">
-               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>

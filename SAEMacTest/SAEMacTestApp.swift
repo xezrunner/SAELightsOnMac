@@ -15,8 +15,6 @@ struct SAEMacTestApp: App {
     
     var controllerWindow: NSWindow?
     
-    public static var globalState = GlobalState()
-    
     init() {
         loadDependencies()
         doSwizzles()
@@ -62,8 +60,9 @@ struct SAEMacTestApp: App {
             //ContentView2()
             //BackingView()
             //TestView()
-            ControllerView()
-                .environmentObject(SAEMacTestApp.globalState)
+            
+            //ControllerView()
+            //    .environmentObject(GLOBAL_globalState)
         }
     }
 }
