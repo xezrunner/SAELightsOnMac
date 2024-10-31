@@ -5,7 +5,7 @@ struct ControllerWindow {
     
     @MainActor static func createControllerWindow() -> NSWindow {
 #if true
-        let content = ControllerView().environmentObject(GLOBAL_globalState)
+        let content = ControllerView().environmentObject(GlobalState.GLOBAL_instance)
         
         let controller = NSHostingController(rootView: content)
         //controller.view.widthAnchor.constraint (greaterThanOrEqualToConstant: CGFloat(400)).isActive = true

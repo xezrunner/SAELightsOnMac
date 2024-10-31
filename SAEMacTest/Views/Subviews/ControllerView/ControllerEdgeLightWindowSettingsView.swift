@@ -9,8 +9,7 @@ import SwiftUI
 struct ControllerEdgeLightWindowSettingsView: View {
     @EnvironmentObject var globalState: GlobalState
     
-    @State var multiplyCompositionState: Bool? = nil
-    @State var windowedModeState: Bool? = nil
+    @Binding var settings: EdgeLightWindowSettings
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -18,24 +17,15 @@ struct ControllerEdgeLightWindowSettingsView: View {
 //            Text("\(globalState.useIntelligenceLightView ? "The system intelligence light view will be used." : "A custom mesh gradient view will be used.")"
 //            ).padding(6)
             
-            Toggle("\(multiplyCompositionState ?? false ? "" : "")Enable multiply blending composition", isOn:
-                    Binding(
-                        get: { EdgeLightWindow.layer?.compositingFilter != nil },
-                        set: { value in
-                            EdgeLightWindow.layer?.compositingFilter = (value ? CIFilter.multiplyCompositing() : nil)
-                            multiplyCompositionState = EdgeLightWindow.layer?.compositingFilter != nil
-                        }
-                    )
-            )
+            Toggle("Enable multiply blending composition", isOn: $settings.isMultiplyCompositionEnabled)
+                .onChange(of: settings.isMultiplyCompositionEnabled) {
+                    EdgeLightWindow.instance?.setMultiplyCompositing(value: settings.isMultiplyCompositionEnabled)
+                }
             
-            Toggle("\(windowedModeState ?? false ? "" : "")Enable windowed mode", isOn:
-                    Binding(
-                        get: { windowedModeState == nil ? EdgeLightWindow.window?.hasShadow ?? false : windowedModeState! },
-                        set: { value in
-                            windowedModeState = EdgeLightWindow.setWindowed(value: value)
-                        }
-                    )
-            )
+            Toggle("Enable windowed mode", isOn: $settings.isWindowed)
+                .onChange(of: settings.isWindowed) {
+                    _ = EdgeLightWindow.instance?.setWindowed(value: settings.isWindowed)
+                }
         }
         .padding(24)
         .toggleStyle(FullWidthToggleStyle())

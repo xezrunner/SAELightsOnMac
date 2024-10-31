@@ -20,12 +20,12 @@ struct ControllerMeshGradientSettingsView: View {
                     ).toggleStyle(.switch)
                 }
             }
-            .padding(.vertical, 4)
+            .padding(.vertical, 6)
             
-            Text("⚠️ The system intelligence light view will be used.")
+            Text("The system intelligence light view will be used.").bold()
                 .frame(height: globalState.useIntelligenceLightView ? nil : 0, alignment: !globalState.useIntelligenceLightView ? .bottom : .top)
                 .allowsHitTesting(globalState.useIntelligenceLightView)
-                .blur(radius: globalState.useIntelligenceLightView ? 0 : 60)
+                .blur(radius: globalState.useIntelligenceLightView ? 0 : 15)
                 .opacity(globalState.useIntelligenceLightView ? 1 : 0)
             
             VStack(alignment: .leading) {
@@ -50,9 +50,15 @@ struct ControllerMeshGradientSettingsView: View {
             .frame(height: !globalState.useIntelligenceLightView ? nil : 0, alignment: globalState.useIntelligenceLightView ? .bottom : .top)
             .allowsHitTesting(!globalState.useIntelligenceLightView)
             .opacity(!globalState.useIntelligenceLightView ? 1 : 0)
-            .blur(radius: !globalState.useIntelligenceLightView ? 0 : 40)
+            .blur(radius: !globalState.useIntelligenceLightView ? 0 : 15)
             //.clipped()
         }
         .padding(24)
     }
+}
+
+#Preview {
+    var globalState = GlobalState()
+    ControllerMeshGradientSettingsView().environmentObject(globalState)
+        .frame(width: 400)
 }

@@ -1,7 +1,9 @@
 import SwiftUI
 
-class GlobalState: ObservableObject, Identifiable {
-    @Published public var useIntelligenceLightView = false
+class GlobalState: ObservableObject {
+    public static var GLOBAL_instance = GlobalState()
+    
+    @Published var useIntelligenceLightView = false
     
     @Published var meshContrast   = 2.555
     @Published var meshBrightness = 0.5
@@ -12,9 +14,9 @@ class GlobalState: ObservableObject, Identifiable {
         Color(CGColor(red: 1.0,   green: 0.488, blue: 0.0, alpha: 1)),   // orange/brown
      ]
     
+    @Published var edgeLightWindowSettings = EdgeLightWindowSettings()
+    
     @Published var modeValue   = 1.0
     @Published var volumeLevel: Float = -80.0
     @Published var burstStartPosition: Float = 1
 }
-
-@MainActor var GLOBAL_globalState = GlobalState()

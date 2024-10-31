@@ -106,11 +106,11 @@
 		215F31662CCEE82C00F6ADD5 /* Backend */ = {
 			isa = PBXGroup;
 			children = (
-				21526CE52CD1C2940089F680 /* Binding+Extensions.swift */,
 				2147E60B2CCF48990027945C /* GlobalState.swift */,
 				215F31692CCEF4E500F6ADD5 /* HostingView.swift */,
 				215F31672CCEE82D00F6ADD5 /* ObjCUtilities.swift */,
 				2161CB262CCED8E5002E108A /* Swizzles.swift */,
+				21526CE52CD1C2940089F680 /* Binding+Extensions.swift */,
 			);
 			path = Backend;
 			sourceTree = "<group>";
@@ -127,8 +127,8 @@
 		215F31732CCEFE4500F6ADD5 /* Windows */ = {
 			isa = PBXGroup;
 			children = (
-				215F31742CCEFE4D00F6ADD5 /* ControllerWindow.swift */,
 				215F316B2CCEFB7000F6ADD5 /* EdgeLightWindow@Runtime.swift */,
+				215F31742CCEFE4D00F6ADD5 /* ControllerWindow.swift */,
 			);
 			path = Windows;
 			sourceTree = "<group>";
@@ -154,9 +154,9 @@
 			isa = PBXGroup;
 			children = (
 				21FD4A722CD1D441009351FF /* Subviews */,
-				21B9BA882CD12BD30053DE2A /* TestView.swift */,
-				215F31642CCEDA0500F6ADD5 /* BackingView.swift */,
 				215F31702CCEFD9700F6ADD5 /* ControllerView.swift */,
+				215F31642CCEDA0500F6ADD5 /* BackingView.swift */,
+				21B9BA882CD12BD30053DE2A /* TestView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";

@@ -1,25 +1,67 @@
 import SwiftUI
 import AVFAudio
 
-// TODO: static not ideal!
-struct EdgeLightWindow {
-    static var window: NSWindow? = nil
-    static var layer:  CALayer?  = nil
+//class EdgeLightWindowSettings: ObservableObject {
+//    @Published var isWindowed = false
+//    @Published var isMultiplyCompositionEnabled = true
+//    
+//    // These are doubles/floats as they are used with Sliders in SwiftUI
+//    @Published var mode = 0.0
+//    @Published var volumeLevel: Float = -80.0
+//    @Published var burstStartPosition: Double = 1.0
+//}
+
+struct EdgeLightWindowSettings {
+    var isWindowed = false
+    var isMultiplyCompositionEnabled = true
     
-    static var audioPlayer = try! AVAudioPlayer(data: NSDataAsset(name: "jbl_begin_sae")!.data)
+    // These are doubles/floats as they are used with Sliders in SwiftUI
+    var mode = 0.0
+    var volumeLevel: Float = -80.0
+    var burstStartPosition: Double = 1.0
+}
+
+class EdgeLightWindow {
+    static var instance: EdgeLightWindow? = nil
     
-    @MainActor static func createEdgeLightWindow(isWindowed: Bool = false) -> NSWindow? {
+    var window: NSWindow? = nil
+    var layer:  CALayer?  = nil
+    
+    // This is used to store the settings that the window *should* have, but doesn't necessarily have yet.
+    // These settings are applied with setSettings(), normally from the controller view, or with the individual
+    // setting functions (setMode(), setVolumeLevel(), etc)...
+    @State var settingsTarget: EdgeLightWindowSettings = EdgeLightWindowSettings()
+    
+    static var audioPlayer = try! AVAudioPlayer(data: NSDataAsset(name: "jbl_begin_sae")?.data ?? Data())
+    
+    init() {
+        // Destroy an existing instance:
+        if let instance = EdgeLightWindow.instance {
+            instance.destroy_immediate()
+        }
+        
+        createEdgeLightWindow()
+        EdgeLightWindow.instance = self
+    }
+    
+    convenience init(settings: EdgeLightWindowSettings) {
+        self.init()
+        setSettings(settings)
+    }
+    
+    private func createEdgeLightWindow(isWindowed: Bool = false) {
         // MARK: Initialize window class/instance
-        guard let windowClass: AnyClass = NSClassFromString("SiriUIEdgeLightWindow") else { return nil }
+        guard let windowClass: AnyClass = NSClassFromString("SiriUIEdgeLightWindow") else { return }
         print("SiriUIEdgeLightWindow class: \(windowClass.debugDescription())")
         
-        guard let windowInstance = windowClass.alloc() as? NSWindow else { print("Could not allocate inst"); return nil }
+        guard let windowInstance = windowClass.alloc() as? NSWindow else { print("Could not allocate inst"); return }
         print("  - SiriUIEdgeLightWindow instance: \(windowInstance.debugDescription)")
         
         callToObjC(windowInstance, "init")
         self.window = windowInstance
         
         // MARK: Set up window
+        windowInstance.isReleasedWhenClosed = false // TODO: memory allocation
         windowInstance.title = "Edge light window"
         windowInstance.titleVisibility = .hidden
         windowInstance.collectionBehavior = NSWindow.CollectionBehavior.managed // Restore spaces / mission ctrl
@@ -39,22 +81,11 @@ struct EdgeLightWindow {
         
         setMultiplyCompositing(value: true)
         
-        // MARK: Invoke effects
-        //setBurstStartPosition(value: 1)
-    #if false
-        callToObjC(windowInstance, "setMode:", 1)
-        //layer.perform(NSSelectorFromString("animateOn"))
-        //layer.perform(NSSelectorFromString("setPaused:"), with: false)
-        
-        callToObjC(layer, "updateVolumeInputdB:", Float(50.0))
-    #endif
-        
         // MARK: Set up custom content
-        
         let edgeLightView = windowInstance.value(forKey: "_edgeLightView") as! NSView
         
-        // Reorder and create:
-        // We want the effect to stay on top:
+        // Reorder views and create:
+        // We want the effect to stay on top, with the backing view behind it being masked:
         withExtendedLifetime(edgeLightView) {
             edgeLightView.removeFromSuperview()
             edgeLightView.autoresizingMask = NSView.AutoresizingMask([NSView.AutoresizingMask.width, NSView.AutoresizingMask.height])
@@ -62,19 +93,47 @@ struct EdgeLightWindow {
             windowInstance.contentView = NSView()
             
             // Create our custom view:
-            let backingView = BackingView().environmentObject(GLOBAL_globalState)
+            let backingView = BackingView().environmentObject(GlobalState.GLOBAL_instance)
             let backingViewHost = HostingView(rootView: backingView, frame: edgeLightView.frame)
-            windowInstance.contentView!.addSubview(backingViewHost)
             
+            windowInstance.contentView!.addSubview(backingViewHost)
             windowInstance.contentView!.addSubview(edgeLightView)
         }
-        
-        
-        
-        return windowInstance
     }
     
-    static func setWindowed(value: Bool) -> Bool {
+    func setSettings(_ settings: EdgeLightWindowSettings? = nil) {
+        let newSettings = settings ?? self.settingsTarget
+        
+        print("\(#function): \(newSettings)")
+        
+        _ = setWindowed(value: newSettings.isWindowed)
+        setMultiplyCompositing(value: newSettings.isMultiplyCompositionEnabled)
+        
+        setVolumeLevel(value: newSettings.volumeLevel)
+        setBurstStartPosition(value: Int(newSettings.burstStartPosition))
+        
+        if newSettings.mode != 0 { setMode(value: Int(newSettings.mode)) }
+        
+        self.settingsTarget = newSettings
+    }
+    
+    func destroy() async {
+        setMode(value: 0)
+        try! await Task.sleep(for: .seconds(1))
+        
+        destroy_immediate()
+    }
+    
+    func destroy_immediate() {
+        guard let window = window else { return }
+        //callToObjC(window, "_stopAndCleanup")
+        window.orderOut(nil)
+        window.close()
+        //self.window = nil
+        //self.layer = nil
+    }
+    
+    func setWindowed(value: Bool) -> Bool {
         guard let window = window else {
             print("\(#function): no window!")
             return false
@@ -114,17 +173,18 @@ struct EdgeLightWindow {
             print("Set edge light window to fullscreen!")
         }
         
+        settingsTarget.isWindowed = value
         return value
     }
     
-    static func mode() -> Int {
+    func mode() -> Int {
         guard let window = window else {
             return -1
         }
         return window.value(forKey: "_mode") as! Int
     }
     
-    static func setMode(value: Int) {
+    func setMode(value: Int) {
         guard let window = window else {
             print("\(#function) no window!")
             return
@@ -132,32 +192,36 @@ struct EdgeLightWindow {
         
         if value == 1 {
             if mode() != 1 {
-                audioPlayer.play()
+                EdgeLightWindow.audioPlayer.play()
             }
         }
         
         callToObjC(window, "setMode:", value)
+        settingsTarget.mode = Double(value)
     }
     
-    static func setVolumeLevel(value: Float) {
+    func setVolumeLevel(value: Float) {
         guard let layer = layer else {
             print("\(#function) no layer!")
             return
         }
         
         callToObjC(layer, "updateVolumeInputdB:", value)
+        settingsTarget.volumeLevel = value
     }
     
-    static func setMultiplyCompositing(value: Bool) {
+    func setMultiplyCompositing(value: Bool) {
         layer?.compositingFilter = value ? CIFilter.multiplyCompositing() : nil
+        settingsTarget.isMultiplyCompositionEnabled = value
     }
     
-    static func setBurstStartPosition(value: Int) {
+    func setBurstStartPosition(value: Int) {
         guard let layer = layer else {
             print("\(#function) no layer!")
             return
         }
         
         callToObjC(layer, "setBurstStartPosition:", value)
+        settingsTarget.burstStartPosition = Double(value)
     }
 }

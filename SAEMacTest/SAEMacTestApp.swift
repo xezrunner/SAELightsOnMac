@@ -15,23 +15,28 @@ struct SAEMacTestApp: App {
     
     var controllerWindow: NSWindow?
     
-    init() {
+    init(){
         loadDependencies()
         doSwizzles()
         
 #if true
-        _ = EdgeLightWindow.createEdgeLightWindow(isWindowed: false)
-        if !NSEvent.modifierFlags.contains(.shift) { controllerWindow = ControllerWindow.createControllerWindow() }
-        else { let _ = NSEvent.addLocalMonitorForEvents(matching: .keyDown, handler: keyDownEvent) }
+        //EdgeLightWindow.createEdgeLightWindow(isWindowed: false)
+        if !NSEvent.modifierFlags.contains(.shift) {
+            controllerWindow = ControllerWindow.createControllerWindow()
+        }
+        else {
+            let _ = NSEvent.addLocalMonitorForEvents(matching: .keyDown, handler: keyDownEvent)
+            _ = EdgeLightWindow()
+        }
 #endif
     }
     
     func keyDownEvent(event: NSEvent) -> NSEvent {
         if event.keyCode == 1 {
             if controllerWindow == nil {
-                EdgeLightWindow.setBurstStartPosition(value: Int(1))
-                EdgeLightWindow.setVolumeLevel(value: Float(-25.0))
-                EdgeLightWindow.setMode(value: Int(1))
+                EdgeLightWindow.instance?.setBurstStartPosition(value: Int(1))
+                EdgeLightWindow.instance?.setVolumeLevel(value: Float(-25.0))
+                EdgeLightWindow.instance?.setMode(value: Int(1))
             }
         }
         
