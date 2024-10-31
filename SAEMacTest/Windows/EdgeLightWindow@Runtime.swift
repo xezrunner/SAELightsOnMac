@@ -32,6 +32,11 @@ struct EdgeLightWindow {
         let layer = windowInstance.value(forKey: "_edgeLightLayer") as! CALayer
         self.layer = layer
         
+        // Set screen:
+        // NOTE: This is explicitly required when SIP is on for some reason.
+        callToObjC(layer, "setScreen:", windowInstance.screen!)
+        layer.setValue(windowInstance.screen!, forKey: "_screen")
+        
         setMultiplyCompositing(value: true)
         
         // MARK: Invoke effects
