@@ -19,7 +19,12 @@ struct ControllerView: View {
     @State var edgeLightActiveStatus = 0.0
     
     init() {
-        _edgeLightWindow = State(wrappedValue: EdgeLightWindow())
+        //_edgeLightWindow = State(wrappedValue: EdgeLightWindow())
+        //createEdgeLightWindow()
+    }
+    
+    func createEdgeLightWindow() {
+        edgeLightWindow = EdgeLightWindow()
     }
     
     var body: some View {
@@ -31,11 +36,9 @@ struct ControllerView: View {
                 Spacer().frame(height: 30) // 15?
                     .background(.red)
                 
-                if edgeLightWindow == nil {
+                if false && edgeLightWindow == nil {
                     
                 } else {
-                    let edgeLightWindowInstance = edgeLightWindow! // Safe to unwrap here because of the condition block
-                    
                     let binding_meshSettingsPlatter = Binding(get: { globalState.useIntelligenceLightView ? 0.0 : 1.0 }, set: { _ in })
                     IntelligenceUIPlatterView(exteriorLightFraction: binding_meshSettingsPlatter,
                                               interiorLightFraction: binding_meshSettingsPlatter) {
@@ -58,11 +61,25 @@ struct ControllerView: View {
                     
                     VStack(spacing: 12) {
                         Button("Set mode") {
-                            edgeLightWindowInstance.setBurstStartPosition(value: Int(edgeLightWindowSettingsTarget.burstStartPosition))
-                            edgeLightWindowInstance.setMode              (value: Int(edgeLightWindowSettingsTarget.mode))
+                            if (edgeLightWindow == nil) { createEdgeLightWindow() }
+                            
+                            edgeLightWindow?.setBurstStartPosition(value: Int(edgeLightWindowSettingsTarget.burstStartPosition))
+                            edgeLightWindow?.setMode              (value: Int(edgeLightWindowSettingsTarget.mode))
                             edgeLightActiveStatus = edgeLightWindowSettingsTarget.mode
                         }
                         .buttonStyle(FullWidthButtonStyle(backgroundColor: .accentColor, foregroundColor: .white))
+                        
+                        Button("Destroy") {
+                            guard let instance = EdgeLightWindow.instance else { return }
+                            
+                            instance.setMode(value: 0)
+                            Task {
+                                try! await Task.sleep(for: .seconds(1))
+                                instance.destroy_immediate()
+                                edgeLightWindow = nil
+                            }
+                        }
+                        .buttonStyle(FullWidthButtonStyle(backgroundColor: .red, foregroundColor: .white))
                         
                         Button("Destroy & recreate") {
                             guard let instance = EdgeLightWindow.instance else { return }
@@ -84,8 +101,6 @@ struct ControllerView: View {
             
             if ProcessInfo.processInfo.environment["XCODE_RUNNING_FOR_PREVIEWS"] != nil { return }
             let _ = NSEvent.addLocalMonitorForEvents(matching: .keyDown, handler: keyDownEvent)
-            let window = NSApplication.shared.windows.first!
-            print(window)
         }
         .ignoresSafeArea(.all)
     }
