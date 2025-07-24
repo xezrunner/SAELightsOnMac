@@ -1,5 +1,7 @@
 import SwiftUI
 
+// NOTE: this is no longer used!
+
 struct ControllerWindow {
     public static var controllerWindow: NSWindow? = nil
     

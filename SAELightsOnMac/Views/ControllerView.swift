@@ -27,21 +27,26 @@ struct ControllerView: View {
                 .background(.regularMaterial)
                 .ignoresSafeArea(.all)
             
-            VStack(alignment: .leading, spacing: 20) {
-                ScrollView {
+            ScrollView {
+                VStack(alignment: .leading, spacing: 20) {
                     settingsPlatters
                 }
-                
-                controlsPlatter
+                .padding(.horizontal, 32)
+                .padding(.vertical, 48)
             }
-            .padding(.horizontal, 32)
-            .padding(.vertical, 48)
+            .safeAreaInset(edge: .bottom) {
+                controlsPlatter
+                    .padding(.horizontal, 24)
+                    .background(.ultraThinMaterial, in: UnevenRoundedRectangle(cornerRadii: .init(topLeading: 24, bottomLeading: 0, bottomTrailing: 0, topTrailing: 24)))
+            }
         }
         .onAppear {
             if ProcessInfo.processInfo.environment["XCODE_RUNNING_FOR_PREVIEWS"] != nil { return }
             let _ = NSEvent.addLocalMonitorForEvents(matching: .keyDown, handler: keyDownEvent)
         }
-//        .fixedSize() // FIXME: this would let the window size be dynamic, but it also lags when it expands
+        .fixedSize(horizontal: true, vertical: false) // FIXME: this would let the window size be dynamic, but it also lags when it expands
+        .navigationTitle("Edge light window controller")
+        .toolbarBackgroundVisibility(.hidden, for: .windowToolbar)
     }
     
     func keyDownEvent(event: NSEvent) -> NSEvent? {

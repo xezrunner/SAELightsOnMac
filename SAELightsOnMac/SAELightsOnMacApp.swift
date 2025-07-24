@@ -22,7 +22,7 @@ struct SAELightsOnMacApp: App {
 #if true
         //EdgeLightWindow.createEdgeLightWindow(isWindowed: false)
         if !NSEvent.modifierFlags.contains(.shift) {
-            controllerWindow = ControllerWindow.createControllerWindow()
+//            controllerWindow = ControllerWindow.createControllerWindow()
         }
         else {
             let _ = NSEvent.addLocalMonitorForEvents(matching: .keyDown, handler: keyDownEvent)
@@ -66,8 +66,9 @@ struct SAELightsOnMacApp: App {
             //BackingView()
             //TestView()
             
-            //ControllerView()
-            //    .environmentObject(GLOBAL_globalState)
+            ControllerView()
+                .environmentObject(GlobalState.GLOBAL_instance)
         }
+        .windowResizability(.contentSize)
     }
 }
