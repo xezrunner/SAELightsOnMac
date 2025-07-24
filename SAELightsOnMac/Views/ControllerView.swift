@@ -28,7 +28,9 @@ struct ControllerView: View {
                 .ignoresSafeArea(.all)
             
             VStack(alignment: .leading, spacing: 20) {
-                settingsPlatters
+                ScrollView {
+                    settingsPlatters
+                }
                 
                 controlsPlatter
             }
