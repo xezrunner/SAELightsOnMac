@@ -1,4 +1,4 @@
-// SAEMacTest::ControllerViewPlatters.swift - 24/07/2025
+// SAELightsOnMac::ControllerViewPlatters.swift - 24/07/2025
 import SwiftUI
 
 extension ControllerView {

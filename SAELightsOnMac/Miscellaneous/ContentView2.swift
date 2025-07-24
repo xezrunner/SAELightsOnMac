@@ -1,6 +1,6 @@
 //
 //  TestView.swift
-//  SAEMacTest
+//  SAELightsOnMac
 //
 //  Created by Sebastian Kassai on 27/10/2024.
 //

@@ -17,7 +17,7 @@
 		215F31712CCEFD9700F6ADD5 /* ControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215F31702CCEFD9700F6ADD5 /* ControllerView.swift */; };
 		215F31752CCEFE4F00F6ADD5 /* ControllerWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215F31742CCEFE4D00F6ADD5 /* ControllerWindow.swift */; };
 		2161CB282CCED8E5002E108A /* ContentView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2161CB232CCED8E5002E108A /* ContentView2.swift */; };
-		2161CB292CCED8E5002E108A /* SAEMacTestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2161CB252CCED8E5002E108A /* SAEMacTestApp.swift */; };
+		2161CB292CCED8E5002E108A /* SAELightsOnMacApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2161CB252CCED8E5002E108A /* SAELightsOnMacApp.swift */; };
 		2161CB2A2CCED8E5002E108A /* Swizzles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2161CB262CCED8E5002E108A /* Swizzles.swift */; };
 		2161CB2C2CCED8E5002E108A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2161CB212CCED8E5002E108A /* Assets.xcassets */; };
 		21937A0F2CD1CEEE00486DF4 /* ControllerMeshGradientSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21937A0E2CD1CEEE00486DF4 /* ControllerMeshGradientSettingsView.swift */; };
@@ -33,11 +33,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		211244692CCAFF61009C1186 /* SAEMacTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SAEMacTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		211244692CCAFF61009C1186 /* SAELightsOnMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SAELightsOnMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2147E60B2CCF48990027945C /* GlobalState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalState.swift; sourceTree = "<group>"; };
 		21526CE32CD17C1E0089F680 /* XZSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XZSlider.swift; sourceTree = "<group>"; };
 		21526CE52CD1C2940089F680 /* Binding+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Binding+Extensions.swift"; sourceTree = "<group>"; };
-		215F31632CCED9AC00F6ADD5 /* SAEMacTest.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SAEMacTest.entitlements; sourceTree = "<group>"; };
+		215F31632CCED9AC00F6ADD5 /* SAELightsOnMac.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SAELightsOnMac.entitlements; sourceTree = "<group>"; };
 		215F31642CCEDA0500F6ADD5 /* BackingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackingView.swift; sourceTree = "<group>"; };
 		215F31672CCEE82D00F6ADD5 /* ObjCUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjCUtilities.swift; sourceTree = "<group>"; };
 		215F31692CCEF4E500F6ADD5 /* HostingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostingView.swift; sourceTree = "<group>"; };
@@ -46,7 +46,7 @@
 		215F31742CCEFE4D00F6ADD5 /* ControllerWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerWindow.swift; sourceTree = "<group>"; };
 		2161CB212CCED8E5002E108A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2161CB232CCED8E5002E108A /* ContentView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView2.swift; sourceTree = "<group>"; };
-		2161CB252CCED8E5002E108A /* SAEMacTestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SAEMacTestApp.swift; sourceTree = "<group>"; };
+		2161CB252CCED8E5002E108A /* SAELightsOnMacApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SAELightsOnMacApp.swift; sourceTree = "<group>"; };
 		2161CB262CCED8E5002E108A /* Swizzles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swizzles.swift; sourceTree = "<group>"; };
 		21937A0E2CD1CEEE00486DF4 /* ControllerMeshGradientSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerMeshGradientSettingsView.swift; sourceTree = "<group>"; };
 		21B37D892CCF107A004636AF /* FullWidthButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullWidthButtonStyle.swift; sourceTree = "<group>"; };
@@ -82,7 +82,7 @@
 		211244602CCAFF61009C1186 = {
 			isa = PBXGroup;
 			children = (
-				2161CB2D2CCED906002E108A /* SAEMacTest */,
+				2161CB2D2CCED906002E108A /* SAELightsOnMac */,
 				2112446A2CCAFF61009C1186 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -90,7 +90,7 @@
 		2112446A2CCAFF61009C1186 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				211244692CCAFF61009C1186 /* SAEMacTest.app */,
+				211244692CCAFF61009C1186 /* SAELightsOnMac.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -135,7 +135,7 @@
 			path = Windows;
 			sourceTree = "<group>";
 		};
-		2161CB2D2CCED906002E108A /* SAEMacTest */ = {
+		2161CB2D2CCED906002E108A /* SAELightsOnMac */ = {
 			isa = PBXGroup;
 			children = (
 				2147E60D2CCF4B8A0027945C /* Controls */,
@@ -143,13 +143,13 @@
 				215F31732CCEFE4500F6ADD5 /* Windows */,
 				2161CB312CCED918002E108A /* Views */,
 				215F31662CCEE82C00F6ADD5 /* Backend */,
-				2161CB252CCED8E5002E108A /* SAEMacTestApp.swift */,
+				2161CB252CCED8E5002E108A /* SAELightsOnMacApp.swift */,
 				215F31722CCEFE2F00F6ADD5 /* Miscellaneous */,
-				215F31632CCED9AC00F6ADD5 /* SAEMacTest.entitlements */,
+				215F31632CCED9AC00F6ADD5 /* SAELightsOnMac.entitlements */,
 				2161CB212CCED8E5002E108A /* Assets.xcassets */,
 				2161CB2F2CCED90C002E108A /* Preview Content */,
 			);
-			path = SAEMacTest;
+			path = SAELightsOnMac;
 			sourceTree = "<group>";
 		};
 		2161CB312CCED918002E108A /* Views */ = {
@@ -194,9 +194,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		211244682CCAFF61009C1186 /* SAEMacTest */ = {
+		211244682CCAFF61009C1186 /* SAELightsOnMac */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 211244782CCAFF62009C1186 /* Build configuration list for PBXNativeTarget "SAEMacTest" */;
+			buildConfigurationList = 211244782CCAFF62009C1186 /* Build configuration list for PBXNativeTarget "SAELightsOnMac" */;
 			buildPhases = (
 				211244652CCAFF61009C1186 /* Sources */,
 				211244662CCAFF61009C1186 /* Frameworks */,
@@ -209,11 +209,11 @@
 			fileSystemSynchronizedGroups = (
 				2161CB2F2CCED90C002E108A /* Preview Content */,
 			);
-			name = SAEMacTest;
+			name = SAELightsOnMac;
 			packageProductDependencies = (
 			);
 			productName = SAEMacTest;
-			productReference = 211244692CCAFF61009C1186 /* SAEMacTest.app */;
+			productReference = 211244692CCAFF61009C1186 /* SAELightsOnMac.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -231,7 +231,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 211244642CCAFF61009C1186 /* Build configuration list for PBXProject "SAEMacTest" */;
+			buildConfigurationList = 211244642CCAFF61009C1186 /* Build configuration list for PBXProject "SAELightsOnMac" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -245,7 +245,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				211244682CCAFF61009C1186 /* SAEMacTest */,
+				211244682CCAFF61009C1186 /* SAELightsOnMac */,
 			);
 		};
 /* End PBXProject section */
@@ -280,7 +280,7 @@
 				2161CB282CCED8E5002E108A /* ContentView2.swift in Sources */,
 				21937A0F2CD1CEEE00486DF4 /* ControllerMeshGradientSettingsView.swift in Sources */,
 				21CFDBDF2E32801A00985785 /* ControllerViewPlatters.swift in Sources */,
-				2161CB292CCED8E5002E108A /* SAEMacTestApp.swift in Sources */,
+				2161CB292CCED8E5002E108A /* SAELightsOnMacApp.swift in Sources */,
 				215F31652CCEDA0C00F6ADD5 /* BackingView.swift in Sources */,
 				21526CE42CD17C1E0089F680 /* XZSlider.swift in Sources */,
 				215F316A2CCEF4E500F6ADD5 /* HostingView.swift in Sources */,
@@ -417,13 +417,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = SAEMacTest/SAEMacTest.entitlements;
+				CODE_SIGN_ENTITLEMENTS = SAELightsOnMac/SAELightsOnMac.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"SAEMacTest/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"SAELightsOnMac/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_PREVIEWS = YES;
@@ -437,7 +437,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 15.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.xezrunner.SAEMacTest;
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.xezrunner.SAELightsOnMac;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = macosx;
@@ -452,13 +452,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = SAEMacTest/SAEMacTest.entitlements;
+				CODE_SIGN_ENTITLEMENTS = SAELightsOnMac/SAELightsOnMac.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"SAEMacTest/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"SAELightsOnMac/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_PREVIEWS = YES;
@@ -472,7 +472,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 15.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.xezrunner.SAEMacTest;
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.xezrunner.SAELightsOnMac;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = macosx;
@@ -485,7 +485,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		211244642CCAFF61009C1186 /* Build configuration list for PBXProject "SAEMacTest" */ = {
+		211244642CCAFF61009C1186 /* Build configuration list for PBXProject "SAELightsOnMac" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				211244762CCAFF62009C1186 /* Debug */,
@@ -494,7 +494,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		211244782CCAFF62009C1186 /* Build configuration list for PBXNativeTarget "SAEMacTest" */ = {
+		211244782CCAFF62009C1186 /* Build configuration list for PBXNativeTarget "SAELightsOnMac" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				211244792CCAFF62009C1186 /* Debug */,

@@ -1,6 +1,6 @@
 //
 //  IntelligenceUIPlatterView.swift
-//  SAEMacTest
+//  SAELightsOnMac
 //
 //  Created by Sebastian Kassai on 30/10/2024.
 //

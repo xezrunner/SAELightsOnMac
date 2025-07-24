@@ -1,6 +1,6 @@
 //
 //  BasicColorPicker.swift
-//  SAEMacTest
+//  SAELightsOnMac
 //
 //  Created by Sebastian Kassai on 28/10/2024.
 //

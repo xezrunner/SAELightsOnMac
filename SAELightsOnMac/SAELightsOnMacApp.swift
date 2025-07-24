@@ -1,6 +1,6 @@
 //
-//  SAEMacTestApp.swift
-//  SAEMacTest
+//  SAELightsOnMacApp.swift
+//  SAELightsOnMac
 //
 //  Created by Sebastian Kassai on 25/10/2024.
 //
@@ -10,7 +10,7 @@ import CoreImage.CIFilterBuiltins
 import AVKit
 
 @main
-struct SAEMacTestApp: App {
+struct SAELightsOnMacApp: App {
     var isWindowed = true
     
     var controllerWindow: NSWindow?

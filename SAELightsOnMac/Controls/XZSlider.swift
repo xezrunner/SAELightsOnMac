@@ -1,6 +1,6 @@
 //
 //  XZSlider.swift
-//  SAEMacTest
+//  SAELightsOnMac
 //
 //  Created by Sebastian Kassai on 29/10/2024.
 //

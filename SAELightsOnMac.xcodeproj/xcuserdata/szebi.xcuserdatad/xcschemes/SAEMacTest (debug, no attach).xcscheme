@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
    LastUpgradeVersion = "1610"
-   version = "2.0">
+   version = "1.7">
    <BuildAction
       parallelizeBuildables = "YES"
       buildImplicitDependencies = "YES"
@@ -16,9 +16,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "211244682CCAFF61009C1186"
-               BuildableName = "SAEMacTest.app"
-               BlueprintName = "SAEMacTest"
-               ReferencedContainer = "container:SAEMacTest.xcodeproj">
+               BuildableName = "SAELightsOnMac.app"
+               BlueprintName = "SAELightsOnMac"
+               ReferencedContainer = "container:SAELightsOnMac.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -31,26 +31,23 @@
       shouldAutocreateTestPlan = "YES">
    </TestAction>
    <LaunchAction
-      buildConfiguration = "Release"
+      buildConfiguration = "Debug"
       selectedDebuggerIdentifier = ""
       selectedLauncherIdentifier = "Xcode.IDEFoundation.Launcher.PosixSpawn"
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
-      debugXPCServices = "NO"
       debugServiceExtension = "internal"
-      allowLocationSimulation = "YES"
-      viewDebuggingEnabled = "No"
-      queueDebuggingEnabled = "No">
+      allowLocationSimulation = "YES">
       <BuildableProductRunnable
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "211244682CCAFF61009C1186"
-            BuildableName = "SAEMacTest.app"
-            BlueprintName = "SAEMacTest"
-            ReferencedContainer = "container:SAEMacTest.xcodeproj">
+            BuildableName = "SAELightsOnMac.app"
+            BlueprintName = "SAELightsOnMac"
+            ReferencedContainer = "container:SAELightsOnMac.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -65,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "211244682CCAFF61009C1186"
-            BuildableName = "SAEMacTest.app"
-            BlueprintName = "SAEMacTest"
-            ReferencedContainer = "container:SAEMacTest.xcodeproj">
+            BuildableName = "SAELightsOnMac.app"
+            BlueprintName = "SAELightsOnMac"
+            ReferencedContainer = "container:SAELightsOnMac.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
