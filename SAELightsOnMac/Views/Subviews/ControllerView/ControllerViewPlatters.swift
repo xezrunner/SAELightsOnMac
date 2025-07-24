@@ -28,13 +28,14 @@ extension ControllerView {
     
     var controlsPlatter: some View {
         VStack(spacing: 12) {
-            Button("Set mode") {
+            Button(edgeLightWindow == nil ? "Create" : "Set mode") {
                 if (edgeLightWindow == nil) { createEdgeLightWindow() }
                 
                 edgeLightWindow?.setBurstStartPosition(value: Int(edgeLightWindowSettingsTarget.burstStartPosition))
                 edgeLightWindow?.setMode              (value: Int(edgeLightWindowSettingsTarget.mode))
                 edgeLightActiveStatus = edgeLightWindowSettingsTarget.mode
             }
+            .animation(.linear.speed(2), value: edgeLightWindow == nil)
             .buttonStyle(FullWidthButtonStyle(backgroundColor: .accentColor, foregroundColor: .white))
             
             Button("Destroy") {
