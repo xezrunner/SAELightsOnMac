@@ -1,22 +1,12 @@
 import SwiftUI
 import AVFAudio
 
-//class EdgeLightWindowSettings: ObservableObject {
-//    @Published var isWindowed = false
-//    @Published var isMultiplyCompositionEnabled = true
-//    
-//    // These are doubles/floats as they are used with Sliders in SwiftUI
-//    @Published var mode = 0.0
-//    @Published var volumeLevel: Float = -80.0
-//    @Published var burstStartPosition: Double = 1.0
-//}
-
 struct EdgeLightWindowSettings {
     var isWindowed = false
     var isMultiplyCompositionEnabled = true
     
     // These are doubles/floats as they are used with Sliders in SwiftUI
-    var mode = 0.0
+    var mode = 1.0
     var volumeLevel: Float = -80.0
     var burstStartPosition: Double = 1.0
 }
@@ -61,7 +51,7 @@ class EdgeLightWindow {
         self.window = windowInstance
         
         // MARK: Set up window
-        windowInstance.isReleasedWhenClosed = false // TODO: memory allocation
+        windowInstance.isReleasedWhenClosed = false // TODO: memory allocation, crashes when on
         windowInstance.title = "Edge light window"
         windowInstance.titleVisibility = .hidden
         windowInstance.collectionBehavior = NSWindow.CollectionBehavior.managed // Restore spaces / mission ctrl
@@ -69,6 +59,7 @@ class EdgeLightWindow {
         
         windowInstance.colorSpace = NSColorSpace.displayP3
         windowInstance.setDynamicDepthLimit(true)
+        
         
         // MARK: Set up layer
         let layer = windowInstance.value(forKey: "_edgeLightLayer") as! CALayer
@@ -177,7 +168,7 @@ class EdgeLightWindow {
         return value
     }
     
-    func mode() -> Int {
+    var mode: Int {
         guard let window = window else {
             return -1
         }
@@ -191,7 +182,7 @@ class EdgeLightWindow {
         }
         
         if value == 1 {
-            if mode() != 1 {
+            if mode != 1 {
                 EdgeLightWindow.audioPlayer.play()
             }
         }

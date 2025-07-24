@@ -1,5 +1,4 @@
 import SwiftUI
-import AVFoundation
 
 struct ControllerView: View {
     @EnvironmentObject var globalState: GlobalState
@@ -18,91 +17,29 @@ struct ControllerView: View {
     // TODO: This is temporary/hacky, to make the platters respond with light effects only when the effect is active
     @State var edgeLightActiveStatus = 0.0
     
-    init() {
-        //_edgeLightWindow = State(wrappedValue: EdgeLightWindow())
-        //createEdgeLightWindow()
-    }
-    
     func createEdgeLightWindow() {
-        edgeLightWindow = EdgeLightWindow()
+        edgeLightWindow = EdgeLightWindow(settings: edgeLightWindowSettingsTarget)
     }
     
     var body: some View {
         ZStack {
             Color.primary.colorInvert().opacity(0.45)
                 .background(.regularMaterial)
+                .ignoresSafeArea(.all)
             
             VStack(alignment: .leading, spacing: 20) {
-                Spacer().frame(height: 30) // 15?
-                    .background(.red)
+                settingsPlatters
                 
-                if false && edgeLightWindow == nil {
-                    
-                } else {
-                    let binding_meshSettingsPlatter = Binding(get: { globalState.useIntelligenceLightView ? 0.0 : 1.0 }, set: { _ in })
-                    IntelligenceUIPlatterView(exteriorLightFraction: binding_meshSettingsPlatter,
-                                              interiorLightFraction: binding_meshSettingsPlatter) {
-                        ControllerMeshGradientSettingsView()
-                    }
-                    
-                    let binding_lightSettingsPlatters  = Binding(
-                        get: { edgeLightActiveStatus == 0.0 ? 0.0 : Double(max(0.0, (edgeLightWindowSettingsTarget.volumeLevel + 80)) / 130.0) },
-                        set: { _ in })
-                    IntelligenceUIPlatterView(exteriorLightFraction: binding_lightSettingsPlatters,
-                                              interiorLightFraction: binding_lightSettingsPlatters) {
-                        ControllerEdgeLightSettingsView(settings: $edgeLightWindowSettingsTarget)
-                    }
-                    
-                    let binding_windowSettingsPlatters = Binding(get: { 0.0 }, set: { _ in })
-                    IntelligenceUIPlatterView(exteriorLightFraction: binding_windowSettingsPlatters,
-                                              interiorLightFraction: binding_windowSettingsPlatters) {
-                        ControllerEdgeLightWindowSettingsView(settings: $edgeLightWindowSettingsTarget)
-                    }
-                    
-                    VStack(spacing: 12) {
-                        Button("Set mode") {
-                            if (edgeLightWindow == nil) { createEdgeLightWindow() }
-                            
-                            edgeLightWindow?.setBurstStartPosition(value: Int(edgeLightWindowSettingsTarget.burstStartPosition))
-                            edgeLightWindow?.setMode              (value: Int(edgeLightWindowSettingsTarget.mode))
-                            edgeLightActiveStatus = edgeLightWindowSettingsTarget.mode
-                        }
-                        .buttonStyle(FullWidthButtonStyle(backgroundColor: .accentColor, foregroundColor: .white))
-                        
-                        Button("Destroy") {
-                            guard let instance = EdgeLightWindow.instance else { return }
-                            
-                            instance.setMode(value: 0)
-                            Task {
-                                try! await Task.sleep(for: .seconds(1))
-                                instance.destroy_immediate()
-                                edgeLightWindow = nil
-                            }
-                        }
-                        .buttonStyle(FullWidthButtonStyle(backgroundColor: .red, foregroundColor: .white))
-                        
-                        Button("Destroy & recreate") {
-                            guard let instance = EdgeLightWindow.instance else { return }
-                            
-                            instance.setMode(value: 0)
-                            Task {
-                                try! await Task.sleep(for: .seconds(1))
-                                edgeLightWindow = EdgeLightWindow(settings: edgeLightWindowSettingsTarget)
-                            }
-                        }
-                        .buttonStyle(FullWidthButtonStyle())
-                    }.padding()
-                }
+                controlsPlatter
             }
-            .padding(32)
+            .padding(.horizontal, 32)
+            .padding(.vertical, 48)
         }
         .onAppear {
-            //edgeLightWindow = EdgeLightWindow()
-            
             if ProcessInfo.processInfo.environment["XCODE_RUNNING_FOR_PREVIEWS"] != nil { return }
             let _ = NSEvent.addLocalMonitorForEvents(matching: .keyDown, handler: keyDownEvent)
         }
-        .ignoresSafeArea(.all)
+//        .fixedSize() // FIXME: this would let the window size be dynamic, but it also lags when it expands
     }
     
     func keyDownEvent(event: NSEvent) -> NSEvent? {

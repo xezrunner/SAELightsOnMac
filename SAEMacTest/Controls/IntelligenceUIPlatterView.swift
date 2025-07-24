@@ -6,7 +6,7 @@
 //
 import SwiftUI
 
-struct IntelligenceUIPlatterView<Content: View>: NSViewRepresentable, View {
+struct IntelligenceUIPlatterView<Content: View>: NSViewRepresentable {
     @EnvironmentObject var globalState: GlobalState
     
     @State var cornerRadius: Double = 26.0
@@ -47,18 +47,26 @@ struct IntelligenceUIPlatterView<Content: View>: NSViewRepresentable, View {
     
     func makeNSView(context: Context) -> some NSView {
         // Set content from above:
-        let hostingContent = content().frame(maxWidth: .infinity)
+        let hostingContent = content()
+            .padding(24)
+            .frame(maxWidth: .infinity)
             //.onChange(of: borderFraction) { updateProperties() }
         
         let hostingView = NSHostingView(rootView: hostingContent)
         hostingView.layer?.cornerRadius = cornerRadius
         hostingView.clipsToBounds = true
         hostingView.translatesAutoresizingMaskIntoConstraints = false
+//        hostingView.autoresizingMask = NSView.AutoresizingMask([NSView.AutoresizingMask.width, NSView.AutoresizingMask.height])
         
-        _ = callToObjC_dynamic(platterInstance, "setContentView:", hostingView)
+        platterInstance.addSubview(hostingView, positioned: .above, relativeTo: nil)
         
-        hostingView.translatesAutoresizingMaskIntoConstraints = false
-        //hostingView.autoresizingMask = NSView.AutoresizingMask([NSView.AutoresizingMask.width, NSView.AutoresizingMask.height])
+        // Ensure the platter resizes to fit its content by pinning hostingView to all edges of platterInstance:
+        NSLayoutConstraint.activate([
+            hostingView.leadingAnchor.constraint(equalTo: platterInstance.leadingAnchor),
+            hostingView.trailingAnchor.constraint(equalTo: platterInstance.trailingAnchor),
+            hostingView.topAnchor.constraint(equalTo: platterInstance.topAnchor),
+            hostingView.bottomAnchor.constraint(equalTo: platterInstance.bottomAnchor)
+        ])
         
         updateProperties()
         
@@ -74,3 +82,4 @@ struct IntelligenceUIPlatterView<Content: View>: NSViewRepresentable, View {
         updateProperties()
     }
 }
+

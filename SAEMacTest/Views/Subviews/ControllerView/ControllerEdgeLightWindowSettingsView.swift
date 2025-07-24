@@ -25,9 +25,9 @@ struct ControllerEdgeLightWindowSettingsView: View {
             Toggle("Enable windowed mode", isOn: $settings.isWindowed)
                 .onChange(of: settings.isWindowed) {
                     _ = EdgeLightWindow.instance?.setWindowed(value: settings.isWindowed)
+                    print(settings.isWindowed)
                 }
         }
-        .padding(24)
         .toggleStyle(FullWidthToggleStyle())
     }
 }

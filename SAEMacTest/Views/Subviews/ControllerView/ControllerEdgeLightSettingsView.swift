@@ -32,6 +32,5 @@ struct ControllerEdgeLightSettingsView: View {
                 XZSlider(precision: 0, valueName: "Mode", value: $settings.mode, range: 0...5, step: 1)
             }
         }
-        .padding(24)
     }
 }
