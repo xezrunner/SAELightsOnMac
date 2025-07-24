@@ -4,17 +4,17 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>SAEMacTest (debug).xcscheme</key>
+		<key>SAELightsOnMac (debug).xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
-		<key>SAEMacTest (debug, no attach).xcscheme</key>
+		<key>SAELightsOnMac (debug, no attach).xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
-		<key>SAEMacTest (release).xcscheme</key>
+		<key>SAELightsOnMac (release).xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>2</integer>
